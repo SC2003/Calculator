@@ -12,3 +12,34 @@ body {
     color: rgb(255, 255, 255);
     font-family: 'Courier New', Courier, monospace;
 }
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    flex-direction: column;
+}
+/* .title {
+    
+} */
+.content-container {
+    display: flex;
+    flex-direction: column;
+}
+#output {
+    resize: none;
+    background-color: rgb(62, 75, 92);
+    padding: 1px;
+    text-align: center;
+    color: rgb(249, 250, 248);
+    border-radius: 2px;
+    border: 1px solid rgb(62, 75, 92);
+    font-size: 15px;
+    font-weight: bold;
+}
+.btn-container button {
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}

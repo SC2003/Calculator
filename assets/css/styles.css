@@ -1,0 +1,14 @@
+*,
+*::after,
+*::before {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+body {
+    background-color: rgb(31, 41, 55);
+    color: rgb(255, 255, 255);
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <!-- <script src="https://use.fontawesome.com/d0cc0ebe52.js"></script> -->
+    <script
+      src="https://kit.fontawesome.com/38773fea51.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/main.js" defer></script>
     <title>Calculator</title>
   </head>
@@ -12,20 +17,83 @@
     <main class="main-container">
       <h1 class="title">Calculator</h1>
       <div class="content-container">
-        <!-- <div class="output-container"> -->
-        <textarea name="output" id="output" cols="30" rows="10" disabled></textarea>
-        <!-- </div> -->
+        <div class="output-container">
+          <textarea
+            id="output2"
+            name="output"
+            class="output"
+            cols="20"
+            rows="1"
+            disabled
+          ></textarea>
+          <textarea id="output1" name="output" class="output" cols="20" rows="1"></textarea>
+        </div>
+
         <div class="btn-container">
-          <button id="one">1</button>
-          <button id="two">2</button>
-          <button id="three">3</button>
-          <button id="four">4</button>
-          <button id="five">5</button>
-          <button id="six">6</button>
-          <button id="seven">7</button>
-          <button id="eight">8</button>
-          <button id="nine">9</button>
-          <button id="zero">0</button>
+          <div class="line clear-btn">
+            <button id="all-clear">
+              <i class="fas fa-trash" aria-hidden="true"></i>
+            </button>
+            <button id="clear">
+              <i class="fas fa-delete-left" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="line">
+            <button value="seven">
+              <i class="fas fa-7" aria-hidden="true"></i>
+            </button>
+            <button value="eight">
+              <i class="fas fa-8" aria-hidden="true"></i>
+            </button>
+            <button value="nine">
+              <i class="fas fa-9" aria-hidden="true"></i>
+            </button>
+            <button value="divide">
+              <i class="fas fa-divide" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="line">
+            <button value="four">
+              <i class="fas fa-4" aria-hidden="true"></i>
+            </button>
+            <button value="five">
+              <i class="fas fa-5" aria-hidden="true"></i>
+            </button>
+            <button value="six">
+              <i class="fas fa-6" aria-hidden="true"></i>
+            </button>
+            <button value="multiply">
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="line">
+            <button value="one">
+              <i class="fas fa-1" aria-hidden="true"></i>
+            </button>
+            <button value="two">
+              <i class="fas fa-2" aria-hidden="true"></i>
+            </button>
+            <button value="three">
+              <i class="fas fa-3" aria-hidden="true"></i>
+            </button>
+            <button value="sub">
+              <i class="fas fa-minus" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="line">
+            <button value="dot"> 
+              <i class="fas fa-circle" aria-hidden="true" style='font-size:5px;'></i>
+            </button>
+            <button value="zero">
+              <i class="fas fa-0" aria-hidden="true"></i>
+            </button>
+            <button value="equal">
+              <i class="fas fa-equals" aria-hidden="true"></i>
+            </button>
+            <button value="add">
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
         </div>
       </div>
     </main>

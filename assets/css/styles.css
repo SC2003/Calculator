@@ -31,8 +31,7 @@ body {
 .content-container {
     display: flex;
     flex-direction: column;
-    height: auto;
-    width: auto;
+    
 }
 
 .output-container {
@@ -69,7 +68,7 @@ body {
     color: white;
     padding: 15px;
     flex: 1;
-    width: 60px;
+    width: 70px;
     border-radius: 3px;
 }
 

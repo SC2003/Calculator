@@ -1,9 +1,10 @@
 const output1 = document.querySelector('#output1');
 const output2 = document.querySelector('#output2');
-const btn =document.querySelectorAll('.numbers');
-btn.forEach(b => {
-    console.log(b.value);
-    output2.textContent += b.value;
+const numBtn = document.querySelectorAll('.numbers');
+const opBtn = document.querySelectorAll('.operators');
+opBtn.forEach(btn => {
+    console.log(btn.value);
+    output2.textContent += btn.value;
 })
 
 

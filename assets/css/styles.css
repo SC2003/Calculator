@@ -47,7 +47,7 @@ body {
 
 .output {
     width: 100%;
-    font-family: 'LED Digital 7', sans-serif;
+    /* font-family: 'LED Digital 7', sans-serif; */
     resize: none;
     background-color: rgb(62, 75, 92);
     padding: 0.5rem;
@@ -71,31 +71,91 @@ body {
     background-color: transparent;
     color: white;
     padding: 15px;
-    border: 1px solid red;
-    border-radius: 5px;
     flex: 1;
     width: 60px;
     border-radius: 3px;
-}
-
-.btn-container button:hover {
-    background-color: rgb(128, 128, 128);
-    border: 1px solid transparent;
-}
-
-.btn-container button:active {
-    background-color: rgb(64, 64, 64);
-    border: 1px solid transparent;
 }
 
 .line {
     padding-bottom: 5px;
 }
 
-/* #dot {
-    padding: 1rem;
-} */
 .clear-btn {
     display: flex;
     gap: 0.5rem;
+}
+
+.btn-container .numbers {
+    border: 1px solid rgb(255, 255, 0);
+}
+
+.btn-container .numbers:hover {
+    color: white;
+    background-color: rgba(255, 255, 0, 0.5);
+    border: 1px solid currentColor;
+}
+
+.btn-container .numbers:active {
+    color: black;
+    background-color: rgb(255, 255, 0);
+    border: 1px solid currentColor;
+}
+
+.btn-container .operators {
+    border: 1px solid rgb(173, 216, 230);
+}
+
+.btn-container .operators:hover {
+    color: white;
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 1px solid currentColor;
+}
+
+.btn-container .operators:active {
+    color: black;
+    background-color: rgb(173, 216, 230);
+    border: 1px solid currentColor;
+}
+
+.btn-container .equal {
+    border: 1px solid rgb(0, 128, 0);
+}
+
+.btn-container .equal:hover {
+    color: white;
+    background-color: rgba(0, 128, 0, 0.5);
+    border: 1px solid currentColor;
+}
+
+.btn-container .equal:active {
+    color: black;
+    background-color: rgb(0, 128, 0);
+    border: 1px solid currentColor;
+}
+
+/* 
+.btn-container .dot {
+    border: 1px solid rgb(255, 0, 0);
+} */
+
+.btn-container .dot,
+#all-clear,
+#clear {
+    border: 1px solid rgb(255, 0, 0);
+}
+
+.btn-container .dot:hover,
+#all-clear:hover,
+#clear:hover {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.5);
+    border: 1px solid currentColor;
+}
+
+.btn-container .dot:active,
+#all-clear:active,
+#clear:active {
+    color: black;
+    background-color: rgb(255, 0, 0);
+    border: 1px solid currentColor;
 }

@@ -1,5 +1,6 @@
-const output = document.querySelector('#output1');
-// output.textContent = "Hello";
+const output1 = document.querySelector('#output1');
+const output2 = document.querySelector('#output2');
+output2.textContent = "Hello";
 
 const add = (num1, num2) => num1 + num2;
 const subtract = (num1, num2) => num1 - num2;
@@ -21,7 +22,7 @@ const operate = (operator, num1, num2) => {
         return divide(num1, num2)
     }
 };
-let operator = '/';
+let operator = '+';
 let num1 = 10;
 let num2 = 5;
-output.textContent = operate(operator, num1, num2);
+output1.textContent = operate(operator, num1, num2);

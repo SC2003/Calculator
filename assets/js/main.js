@@ -1,6 +1,11 @@
 const output1 = document.querySelector('#output1');
 const output2 = document.querySelector('#output2');
-output2.textContent = "Hello";
+const btn =document.querySelectorAll('.numbers');
+btn.forEach(b => {
+    console.log(b.value);
+    output2.textContent += b.value;
+})
+
 
 const add = (num1, num2) => num1 + num2;
 const subtract = (num1, num2) => num1 - num2;

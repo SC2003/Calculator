@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/scientific-calculator-lcd');
+@import url('https://fonts.cdnfonts.com/css/led-digital-7');
 
 *,
 *::after,
@@ -26,7 +26,7 @@ body {
 }
 
 .title {
-    margin-bottom: 10px;
+    margin-bottom: 5rem;
     margin-left: 10px;
 }
 
@@ -46,16 +46,17 @@ body {
 }
 
 .output {
-    font-family: 'Scientific Calculator LCD', sans-serif;
+    width: 100%;
+    font-family: 'LED Digital 7', sans-serif;
     resize: none;
     background-color: rgb(62, 75, 92);
-    padding: 1px;
-    text-align: center;
+    padding: 0.5rem;
     color: rgb(249, 250, 248);
     border-radius: 2px;
     border: 1px solid rgb(62, 75, 92);
     font-size: 15px;
     font-weight: bold;
+    font-size: 20px;
     text-align: end;
 }
 

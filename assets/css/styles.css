@@ -8,8 +8,8 @@
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
+    /* min-height: 100vh;
+    min-width: 100vw; */
     background-color: rgb(31, 41, 55);
     color: rgb(255, 255, 255);
     font-family: 'Courier New', Courier, monospace;
@@ -22,14 +22,19 @@ body {
     font-size: 25px;
     flex-direction: column;
 }
+
 .title {
-    margin-bottom: 10px;
+    margin-bottom: 4rem;
     margin-left: 10px;
 }
+
 .content-container {
     display: flex;
     flex-direction: column;
+    height: auto;
+    width: auto;
 }
+
 .output-container {
     display: flex;
     flex-flow: column wrap;
@@ -37,6 +42,7 @@ body {
     align-items: center;
     margin-bottom: 2rem;
 }
+
 .output {
     resize: none;
     background-color: rgb(62, 75, 92);
@@ -49,29 +55,39 @@ body {
     font-weight: bold;
     text-align: end;
 }
+
 .btn-container {
     display: flex;
     flex-direction: column;
     position: relative;
     gap: 10px;
 }
+
 .btn-container button {
+    background-color: transparent;
+    color: white;
     padding: 15px;
-    border: 1px solid transparent;
+    border: 1px solid red;
     border-radius: 5px;
     flex: 1;
+    width: 60px;
+    border-radius: 3px;
 }
+
 .btn-container button:hover {
     background-color: rgb(128, 128, 128);
     border: 1px solid transparent;
 }
+
 .btn-container button:active {
     background-color: rgb(64, 64, 64);
     border: 1px solid transparent;
 }
+
 .line {
     padding-bottom: 5px;
 }
+
 /* #dot {
     padding: 1rem;
 } */

@@ -1,45 +1,130 @@
-const output1 = document.querySelector('#output1');
-const output2 = document.querySelector('#output2');
-const numBtn = document.querySelectorAll('.numbers');
-const opBtn = document.querySelectorAll('.operators');
-const allClearBtn = document.querySelector('#all-clear');
-const clearBtn = document.querySelector('#clear');
-let operator = '+';
-let num1 = 10;
-let num2 = 5;
-numBtn.forEach(btn => {
-    
-    btn.addEventListener('click', (e) => {
-    output1.textContent += (btn.value);
-    });
-});
-allClearBtn.addEventListener('click', () => {
-    output1.textContent = null;;
-    output2.textContent = null;
-    operator = null;;
-    num1 = null;
-    num2 = null;
-});
-clearBtn.addEventListener('click', () => output1.textContent = output1.textContent.slice(0, -1));
-const add = (num1, num2) => num1 + num2;
-const subtract = (num1, num2) => num1 - num2;
-const multiply = (num1, num2) => num1 * num2;
-const divide = (num1, num2) => num1 / num2;
-const power = (num1, num2) => num1 ** num2;
+let currentNum = "";
 
-const operate = (operator, num1, num2) => {
-    if(!operator || !num1 || !num2) return;
-    if (operator === '+') {
-        return add(num1, num2);
-    } else if (operator === '-') {
-        return subtract(num1, num2);
-    } else if (operator === '*') {
-        return multiply(num1, num2);
-   // } else if (operate === '/') {
-    //    return divide(num1, num2)
-    } else {
-        return divide(num1, num2)
+let previousNum = "";
+
+let operator = "";
+
+const output1 = document.querySelector('#output1');
+
+const output2 = document.querySelector('#output2');
+
+const numBtn = document.querySelectorAll('.numbers');
+
+const opBtn = document.querySelectorAll('.operators');
+
+const allClearBtn = document.querySelector('#all-clear');
+
+const clearBtn = document.querySelector('#clear');
+
+const dotBtn = document.querySelector('.dot');
+
+const equalBtn = document.querySelector('.equal');
+
+
+
+const handleNumber = (number) => {
+    if (previousNum !== "" && currentNum !== "" && operator === "") {
+        previousNum = "";
+        output1.textContent = currentNum;
+    }
+    if (currentNum.length <= 11) {
+        currentNum += number;
+        output1.textContent = currentNum;
     }
 };
 
-output2.textContent = operate(operator, num1, num2);
+numBtn.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault()
+        let value = Number(e.currentTarget.value);
+        handleNumber(value);
+    });
+});
+
+const displayOutput = () => {
+    if (previousNum.length <= 11) {
+        output1.textContent = previousNum;
+    } else {
+        output1.textContent = (`${previousNum.slice(0, 11)} ...`);
+    }
+    output2.textContent = "";
+    operator = "";
+    currentNum = "";
+};
+
+const roundNumber = num => Math.round(num * 100000) / 100000;
+
+const operate = () => {
+    previousNum = Number(previousNum);
+    currentNum = Number(currentNum);
+    if (operator === "+") {
+        previousNum += currentNum;
+    } else if (operator === "-") {
+        previousNum -= currentNum;
+    } else if (operator === "*") {
+        previousNum *= currentNum;
+    } else if (operator === "/") {
+        if (currentNum <= 0) {
+            previousNum = "Error";
+            displayOutput();
+            return;
+        }
+        previousNum /= currentNum;
+    }
+    previousNum = roundNumber(previousNum);
+    previousNum = previousNum.toString();
+    displayOutput();
+}
+const operatorCheck = text => {
+    operator = text;
+    output2.textContent = (`${previousNum} ${operator}`);
+    output1.textContent = '';
+    currentNum = "";
+}
+const handleOperator = (op) => {
+    if (previousNum === "") {
+        previousNum = currentNum;
+        operatorCheck(op);
+    } else if (currentNum === "") {
+        operatorCheck(op);
+    } else {
+        operate();
+        operator = op;
+        output1.textContent = '';
+        output2.textContent = (`${previousNum} ${operator}`);
+    }
+};
+opBtn.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault()
+        let value = (e.currentTarget.value);
+        handleOperator(value);
+    });
+});
+
+allClearBtn.addEventListener('click', () => {
+    output1.textContent = '';
+    output2.textContent = '';
+    currentNum = '';
+    previousNum = '';
+    operator = '';
+});
+
+clearBtn.addEventListener('click', () => {
+    output1.textContent = output1.textContent.slice(0, -1);
+
+});
+
+const addDecimal = () => {
+    if (!currentNum.includes(".")) {
+        currentNum += ".";
+        output1.textContent = currentNum;
+    }
+}
+dotBtn.addEventListener('click', addDecimal);
+
+equalBtn.addEventListener('click', () => {
+    if (currentNum != "" && previousNum != "") {
+        operate();
+    }
+});

@@ -21,7 +21,6 @@ const dotBtn = document.querySelector('.dot');
 const equalBtn = document.querySelector('.equal');
 
 
-
 const handleNumber = (number) => {
     if (previousNum !== "" && currentNum !== "" && operator === "") {
         previousNum = "";
@@ -74,13 +73,15 @@ const operate = () => {
     previousNum = roundNumber(previousNum);
     previousNum = previousNum.toString();
     displayOutput();
-}
+};
+
 const operatorCheck = text => {
     operator = text;
     output2.textContent = (`${previousNum} ${operator}`);
     output1.textContent = '';
     currentNum = "";
-}
+};
+
 const handleOperator = (op) => {
     if (previousNum === "") {
         previousNum = currentNum;
@@ -94,6 +95,7 @@ const handleOperator = (op) => {
         output2.textContent = (`${previousNum} ${operator}`);
     }
 };
+
 opBtn.forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault()
@@ -110,17 +112,29 @@ allClearBtn.addEventListener('click', () => {
     operator = '';
 });
 
-clearBtn.addEventListener('click', () => {
-    output1.textContent = output1.textContent.slice(0, -1);
+const handleUndo = () => {
+    if (currentNum !== "") {
+        currentNum = currentNum.slice(0, -1);
+        output1.textContent = currentNum;
+        if (currentNum === "") {
+            output1.textContent = "";
+        }
+    }
+    if (currentNum === "" && previousNum !== "" && operator === "") {
+        previousNum = previousNum.slice(0, -1);
+        output1.textContent = previousNum;
+    }
+};
 
-});
+clearBtn.addEventListener('click', handleUndo);
 
 const addDecimal = () => {
     if (!currentNum.includes(".")) {
         currentNum += ".";
         output1.textContent = currentNum;
     }
-}
+};
+
 dotBtn.addEventListener('click', addDecimal);
 
 equalBtn.addEventListener('click', () => {
@@ -128,3 +142,30 @@ equalBtn.addEventListener('click', () => {
         operate();
     }
 });
+
+function handleKeyPress(e) {
+    e.preventDefault();
+    if (e.key >= 0 && e.key <= 9) {
+        handleNumber(e.key);
+    }
+    if (
+        e.key === "Enter" ||
+        (e.key === "=" && currentNum != "" && previousNum != "")
+    ) {
+        operate();
+    }
+    if (e.key === "+" || e.key === "-" || e.key === "/") {
+        handleOperator(e.key);
+    }
+    if (e.key === "*") {
+        handleOperator("x");
+    }
+    if (e.key === ".") {
+        addDecimal();
+    }
+    if (e.key === "Backspace") {
+        handleUndo();
+    }
+};
+
+window.addEventListener("keydown", handleKeyPress);
